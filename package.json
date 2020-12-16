@@ -4,7 +4,6 @@
   "description": "Universal Data Connector",
   "main": "index.js",
   "scripts": {
-    "start": "node test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,6 +13,10 @@
     "mongodb",
     "mysql"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hawkeye2013/data-monger.git"
+  },
   "author": "Tucker Hawkinson <tucker@hawkinson.dev>",
   "license": "MIT"
 }
