@@ -1,0 +1,19 @@
+{
+  "name": "data-monger",
+  "version": "0.0.1",
+  "description": "Universal Data Connector",
+  "main": "index.js",
+  "scripts": {
+    "start": "node test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "connector",
+    "postgres",
+    "mongodb",
+    "mysql"
+  ],
+  "author": "Tucker Hawkinson <tucker@hawkinson.dev>",
+  "license": "MIT"
+}
