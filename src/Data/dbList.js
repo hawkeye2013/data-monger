@@ -1,18 +1,18 @@
 let databases = [
   {
-    name: 'postgres',
+    name: 'PostgreSQL',
     type: 'sql',
   },
   {
-    name: 'sqlite',
+    name: 'SQLite',
     type: 'sql',
   },
   {
-    name: 'mysql',
+    name: 'MySQL',
     type: 'sql',
   },
   {
-    name: 'mongodb',
+    name: 'MongoDB',
     type: 'nosql',
   },
 ];
