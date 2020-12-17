@@ -59,7 +59,7 @@ class DriverController {
 
   /**
    *
-   * @param {*} query Query to convert to SQL
+   * @param {Query} query Query to convert to SQL
    */
   _convertQueryToSQL(query) {
     let queryString = '';
@@ -67,17 +67,21 @@ class DriverController {
 
     let keyCount = 0;
 
-    for (const [key, value] of Object.entries(query)) {
-      if (keyCount > 0) {
+    query.query.forEach((element, index) => {
+      if (index > 0) {
         queryString += ' AND ';
       }
 
-      queryString += `${key} = $${key}`;
+      queryString += `${element.name}`;
 
-      queryMap[`$${key}`] = value;
+      if (element.operator == '==') {
+        queryString += ' = ';
+      }
 
-      keyCount++;
-    }
+      queryString += `$${element.name}`;
+
+      queryMap[`$${element.name}`] = element.value;
+    });
 
     return { queryString, queryMap };
   }

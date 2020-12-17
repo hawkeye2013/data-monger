@@ -45,6 +45,12 @@ class Collection {
    * @param {Resource[]} resource - Array of resources to create or update in DB
    */
   set(resource) {}
+
+  /**
+   *
+   * @param {RawQuery} query
+   */
+  raw(query) {}
 }
 
 module.exports = Collection;
