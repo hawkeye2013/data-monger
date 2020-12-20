@@ -36,6 +36,18 @@ class Collection {
 
   /**
    *
+   */
+  getSchema() {
+    return new Promise((resolve, reject) => {
+      this.driverController
+        .getSchema(this.targetCollection)
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
+
+  /**
+   *
    * @param {Resource} resource - Resource to create or update in DB
    */
   setOne(resource) {}
@@ -45,12 +57,6 @@ class Collection {
    * @param {Resource[]} resource - Array of resources to create or update in DB
    */
   set(resource) {}
-
-  /**
-   *
-   * @param {RawQuery} query
-   */
-  raw(query) {}
 }
 
 module.exports = Collection;

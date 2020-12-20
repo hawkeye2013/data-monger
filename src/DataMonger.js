@@ -6,9 +6,38 @@ class DataMonger {
     this._loadDriver(constructorData);
   }
 
+  /**
+   * Selects a collection to query (or table)
+   * @param {String} targetCollection - Name of collection to query
+   * @returns {Collection}
+   */
   collection(targetCollection) {
     return new Collection(this.driverController, targetCollection);
   }
+
+  getSchema() {
+    return new Promise((resolve, reject) => {
+      new Collection(this.driverController, '*')
+        .getSchema('*')
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
+
+  /**
+   * Alias to collection()
+   * @param {String} targetCollection - Name of collection to query
+   * @returns {Collection}
+   */
+  table(targetCollection) {
+    return new Collection(this.driverController, targetCollection);
+  }
+
+  /**
+   * Executes raw sql query
+   * @param {RawQuery} query - SQL query to execute
+   */
+  raw(query) {}
 
   _loadDriver(constructorData) {
     let DriverController;
@@ -26,7 +55,7 @@ class DataMonger {
         break;
 
       case 'MySQL':
-        DriverController = require('./DriverControllers/sqlite');
+        DriverController = require('./DriverControllers/mysql');
         break;
 
       default:
