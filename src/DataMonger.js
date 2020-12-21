@@ -17,7 +17,9 @@ class DataMonger {
 
   getSchema() {
     return new Promise((resolve, reject) => {
-      new Collection(this.driverController, '*')
+      let intermediateCollection = new Collection(this.driverController, '*');
+
+      intermediateCollection
         .getSchema('*')
         .then((data) => resolve(data))
         .catch((err) => reject(err));
